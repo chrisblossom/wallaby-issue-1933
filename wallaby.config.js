@@ -1,6 +1,8 @@
 'use strict';
 
 module.exports = (wallaby) => {
+    var babelConfig = require('./.babelrc');
+
     return {
         files: [
             { pattern: '.babelrc+(.js|)', instrument: false },
@@ -17,7 +19,7 @@ module.exports = (wallaby) => {
         ],
 
         compilers: {
-            '**/*.ts': wallaby.compilers.babel(),
+            '**/*.ts': wallaby.compilers.babel(babelConfig),
         },
 
         hints: {
